@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int minswaps(int *a, int n, int k){
+
+}
+void swap_alternative(int arr[], int size){
+    int temp;
+    for(int i=0;i<size;i+=2){
+        if((i+1)<size){
+            temp=arr[i+1];
+            arr[i+1]=arr[i];
+            arr[i]=temp;
+        }
+    }
+}
+int main(){
+    int n, k;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    cin>>k;
+    swap_alternative(a,n);
+    minswaps(a, n, k);
+    for(int i=0;i<n;i++)
+        cout<<a[i]<<" ";
+}
