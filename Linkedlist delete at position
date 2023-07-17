@@ -1,0 +1,26 @@
+void deleteatpos(Node* &head,int target,int pos){
+    if(head==NULL){
+        cout<<"empty list"<<endl;
+        return;
+    }
+    Node* temp=head;
+    Node* prev=NULL;
+    if(target==temp->data && pos==1){
+        head=head->next;
+        temp->next=NULL;
+        delete temp;
+    }
+    else{
+        while(temp->data!=target && temp!=NULL){
+            prev=temp;
+            temp=temp->next;
+        }
+        if(temp==NULL){
+            cout<<"node not present"<<endl;
+            return;
+        }
+        prev->next=temp->next;
+        temp->next=NULL;
+        delete temp;
+    }
+}
