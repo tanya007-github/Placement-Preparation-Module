@@ -1,0 +1,9 @@
+void sortStack(stack<int>&s){
+    if(s.empty()){
+        return;
+    }
+    int save=s.top();
+    s.pop();
+    sortStack(s);
+    insertSaveAtCorrectPos(s,save);
+}
