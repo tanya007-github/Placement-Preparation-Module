@@ -1,0 +1,10 @@
+void insertathead(Node* &head, int n){
+    Node* newnode=new Node(n);
+    newnode->next=head;     // head jisko point kr rha h, ab newnode ka next bhi ussi ko point krega
+    head=newnode;
+}
+void insertattail(Node* &tail, int n){
+    Node* newnode=new Node(n);
+    tail->next=newnode;
+    tail=newnode;
+}
