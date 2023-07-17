@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Stack{
+    public:
+    int size;
+    char *arr;
+    int top;
+
+    Stack(int size){
+        this->size=size;
+        arr=new char[size];
+        top=-1;
+    }
+    void push(char element){
+        if(top<size-1){
+            top++;
+            arr[top]=element;
+        }
+        else{
+            cout<<"stack overflow"<<endl;
+        }
+    }
+    void pop(){
+        if(top>=0){
+            top--;
+        }
+        else{
+            cout<<"stack empty"<<endl;
+        }
+    }
+    void peek(){
+        if(top>=0 && top<size){
+            cout<<arr[top]<<endl;
+        }
+    }
+};
+int main(){
+    string s="tanya";
+    int len=s.length();
+    Stack st(len);
+    for(int i=0;i<len;i++){
+        st.push(s[i]);
+    }
+    for(int i=0;i<len;i++){
+        st.peek();
+        st.pop();
+    }
+}
