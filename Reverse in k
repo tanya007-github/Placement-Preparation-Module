@@ -1,0 +1,32 @@
+Node* reverseInK(Node* &head, int k) {
+    //empty list
+    if(head == NULL)
+    return NULL;
+
+    Node* curr = head;
+    Node* next = curr -> next;
+    Node* prev = NULL;
+    int count = 0;
+
+    //Step 1: reverse first k nodes
+    while(curr != NULL && count < k) {
+        next = curr -> next;
+        curr -> next = prev;
+
+        prev = curr;
+        curr = next; 
+        count++;
+    }
+
+    //next pointer will be pointing at the head of the remaining list
+    
+    if(next != NULL){
+        //step2:recursion will get ans for remaining list
+        Node* rem = reverseInK(next, k);
+        //step3: connection list in step 1 and step 3
+        head -> next = rem;
+    }
+        
+    //step 4: return head of entire list
+    return prev;
+}
