@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+class human{
+    private:    //if nothing stated then by default: private
+    int height;              //properties of a class
+    int weight;
+    string colour;
+
+    public:
+    void setheight(int w){    //behaviour of class(functions)
+        height=w; //able to access a function/behaviour either if its public or private but in scope of class
+    }
+    int getheight(){
+        return height;
+    }
+
+};
+class male : protected human{
+    public:
+    bool beard;
+    string eyecolour;
+    void setweight(){
+        this->weight=90;
+    }
+    int getweight(){
+        return this->weight;
+    }
+};
+int main(){
+    /*male m1;
+    cout<<m1.eyecolour<<endl;
+    m1.colour="chocolate";
+    cout<<m1.colour<<endl;
+    int w;
+    cin>>w;
+    m1.setheight(w);
+    cout<<m1.height<<endl;
+    m1.setweight();
+    cout<<m1.getweight()<<endl;*/
+    human m2;
+    int w;
+    cin>>w;
+    m2.setheight(w);
+    cout<<m2.getheight();
+}
