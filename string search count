@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main(){
+    string str, str1;
+    cout<<"enter the sentence"<<endl;
+    getline(cin, str);
+    cout<<"enter string to search"<<endl;
+    cin>>str1;
+    int len=0, i=0, j=0, count=0;
+    while(str[i]!='\0'){
+        if(str[i]!=str1[j]){
+            i++;
+        }
+        else{
+            j++;
+            i++;
+            if((str1[j]=='\0') && ((str[i]==' ')  || (str[i]=='\0') || (str[i]=='.'))){
+                count++;
+                j=0;
+            }
+            if(str1[j]=='\0'){
+                j=0;
+            }
+        }
+    }
+    cout<<count;
+}
