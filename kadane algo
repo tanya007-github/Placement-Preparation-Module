@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int MaxSubArraySumByKadane(int a[], int n){
+    int maxsum=INT_MIN;
+    int currsum=0;
+    for(int i=0;i<n;i++){
+        currsum+=a[i];
+        if(currsum>maxsum){
+            maxsum=currsum;
+        }
+        if(currsum<0){
+            currsum=0;
+        }
+    }
+    return maxsum;
+}
+/*int PrintAllSubarrays(int a[], int n){
+    int maxsum=INT_MIN;
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            int sum=0;
+            for(int k=i;k<=j;k++){
+                cout<<a[k]<<" ";
+                sum+=a[k];
+            }
+            maxsum=max(sum, maxsum);
+            cout<<endl;
+        }
+    }
+    return maxsum;
+}*/
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    /*cout<<"Maximum subarray sum is:"<<PrintAllSubarrays(arr, n);*/
+    cout<<MaxSubArraySumByKadane(arr, n);
+}
