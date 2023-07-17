@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int m,n;
+    cin>>m>>n;
+    int matrix[m][n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin>>matrix[i][j];
+        }
+    }
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(matrix[i][j]==0){
+                int jleft=j-1;
+                int jright=j+1;
+                int iup=i-1;
+                int idown=i+1;
+                int ileft=i-1;
+                while(jright<n){
+                    matrix[i][jright]=INT_MIN;
+                    jright++;
+                }
+                while(jleft>=0){
+                    matrix[i][jleft]=INT_MIN;
+                    jleft--;
+                }
+                while(idown<m){
+                    matrix[idown][j]=INT_MIN;
+                    idown++;
+                }
+                while(iup>=0){
+                    matrix[iup][j]=INT_MIN;
+                    iup--;
+                }
+            }
+        }
+    }
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(matrix[i][j]==INT_MIN){
+                matrix[i][j]==0;
+            }
+        }
+    }
+    cout<<matrix.length;
+}
