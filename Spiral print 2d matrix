@@ -1,0 +1,25 @@
+void SpiralPrint(int arr[4][4]){
+    int srow=0, erow=3, scol=0, ecol=3, count=0;
+    while(count<9){
+        for(int i=scol;i<=ecol;i++){
+            count++;
+            cout<<arr[srow][i]<<" ";
+        }
+        srow++;
+        for(int i=srow;i<=erow;i++){
+            count++;
+            cout<<arr[i][ecol]<<" ";
+        }
+        ecol--;
+        for(int i=ecol;i>=scol;i--){
+            count++;
+            cout<<arr[erow][i]<<" ";
+        }
+        erow--;
+        for(int i=erow;i>=srow;i--){
+            count++;
+            cout<<arr[i][scol]<<" ";
+        }
+        scol++;
+    }
+}
