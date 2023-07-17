@@ -1,0 +1,46 @@
+int firstocc(int arr[], int n, int key){
+    int s=0, end=n-1, mid=s+((end-s)/2), ans=-1;
+    while(s<=end){
+        if(key==arr[mid]){
+            ans=mid;
+            end=mid-1;
+        }
+        else if(key<arr[mid]){
+            end=mid-1;
+        }
+        else{
+            s=mid+1;
+        }
+        mid=s+((end-s)/2);
+    }
+    return ans;
+}
+int lastocc(int arr[], int n, int key){
+    int s=0, end=n-1, mid=s+((end-s)/2), ans=-1;
+    while(s<=end){
+        if(key==arr[mid]){
+            ans=mid;
+            s=mid+1;
+        }
+        else if(key<arr[mid]){
+            end=mid-1;
+        }
+        else{
+            s=mid+1;
+        }
+        mid=s+((end-s)/2);
+    }
+    return ans;
+}
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n, a[n], key;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    cin>>key;
+    int totalocc=lastocc(a, n, key) - firstocc(a, n, key);
+    cout<<totalocc;
+}
