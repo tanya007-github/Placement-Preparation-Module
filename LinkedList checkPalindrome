@@ -1,0 +1,19 @@
+bool checkpalindrome(Node* &head){
+    if(head->next==NULL){
+        return true;
+    }
+    Node* middle=findmiddle(head);
+    middle->next=reverselist(middle->next);
+    Node* temp1= head;
+    Node* temp2= middle->next;
+    while(temp1!=NULL && temp2!=NULL){
+        if(temp1->data!=temp2->data){
+            return false;
+        }
+        if(temp2->next==NULL){
+            return true;
+        }
+        temp1=temp1->next;
+        temp2=temp2->next;
+    }
+}
